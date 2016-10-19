@@ -10,7 +10,7 @@ import router from './routes/index'
 mongoose.connect(`mongodb://${config.mongodb.host}:${config.mongodb.port}/${config.mongodb.dbname}`);
 
 const app = new Koa();
-app.keys = ['some secret hurr'];
+app.keys = [config.appKey];
 
 app.use(convert(session(app)));
 

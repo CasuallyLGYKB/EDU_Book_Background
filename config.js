@@ -7,5 +7,6 @@ module.exports = {
         user: "admin",
         password: "admin",
         dbname: "edubook"
-    }
+    },
+    appKey:"LGYBETTER&&KB"
 }
