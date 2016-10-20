@@ -2,7 +2,8 @@ var http = require('http');
 var querystring = require('querystring');
 var postData = querystring.stringify({
   'name' : 'lgy',
-  'password': '12345'
+  'password': '12345',
+  'email': '123'
 });
 
 var options = {

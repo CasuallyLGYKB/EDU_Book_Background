@@ -1,5 +1,6 @@
 import UserModel from '../models/user'
-import { MD5, SHA256 } from 'crypto-js';
+import { MD5, SHA256 } from 'crypto-js'
+import jwt from 'koa-jwt'
 
 exports.loginPost = async (ctx, next) => {
     var req = ctx.request,
@@ -11,6 +12,7 @@ exports.loginPost = async (ctx, next) => {
         password: password.toString(),
         email: email
     });
+    console.log(result);
     if (result && result._id) {
         console.log('登录成功！！！');
         ctx.set('Access-Control-Allow-Origin', '*');
@@ -25,6 +27,8 @@ exports.loginPost = async (ctx, next) => {
 
 exports.loginGet = async (ctx, next) => {
     ctx.response.status = 200;
+    console.log("login Page");
+    console.log(ctx.cookies.get('jwt'));
     ctx.response.body = `<h1>Login</h1>
         <form action="/login" method="post">
             <p>Name: <input name="name" type="text"></p>
