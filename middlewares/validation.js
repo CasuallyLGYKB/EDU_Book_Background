@@ -7,7 +7,6 @@ module.exports = function () {
     ctx.set('Access-Control-Allow-Origin', '*');
     if (token !== undefined) {
       ctx.request.header.authorization = 'Bearer ' + token;
-      var Promise = require('bluebird');
       var verifyPromise = Promise.promisify(jwt.verify);
       await verifyPromise(token, config.appKey)
         .then(async (decoded) => {

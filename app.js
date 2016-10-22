@@ -10,6 +10,8 @@ import validation from './middlewares/validation'
 
 //connetct to the mongodb
 mongoose.connect(`mongodb://${config.mongodb.host}:${config.mongodb.port}/${config.mongodb.dbname}`);
+mongoose.Promise = require('bluebird');
+global.Promise = require('bluebird');
 
 const app = new Koa();
 app.use(validation());

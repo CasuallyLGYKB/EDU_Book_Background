@@ -4,7 +4,7 @@ import logoutController from '../controllers/logoutController'
 
 const router = new Router();
 
-router.post('/',checkCookies.checkCookiesTime,logoutController.logoutPost);
-router.get('/',logoutController.logoutGet);
+router.post('/', checkCookies.checkCookiesTime, logoutController.logoutPost);
+router.get('/', logoutController.logoutGet);
 
 export default router;

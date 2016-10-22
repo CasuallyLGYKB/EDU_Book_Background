@@ -4,14 +4,12 @@ import { MD5, SHA256 } from 'crypto-js'
 exports.registPost = async (ctx, next) => {
   var user = null, result = null, req = ctx.request,
     name = req.body.name,
-    school = req.body.school,
     password = SHA256(req.body.password),
     email = req.body.email;
   user = new UserModel({
     name: name,
     password: password,
-    email: email,
-    school: school
+    email: email
   });
   result = await user.save().catch(e => e);
   if (result && result._id) {
@@ -29,7 +27,6 @@ exports.registGet = async (ctx, next) => {
             <p>Name: <input name="name" type="text"></p>
             <p>Password: <input name="password" type="password"></p>
             <p>Email: <input name="email" type="text"></p>
-            <p>School: <input name="school" type="text"></p>
             <p><input type="submit" value="Submit"></p>
         </form>`;
 }
