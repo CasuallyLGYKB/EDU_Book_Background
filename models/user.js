@@ -5,8 +5,8 @@ const UserSchema = new Schema({
   name: { type: String, required: true },
   password: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  school: { type: String, required: false },
-  address: { type: String, required: false },
+  school: { type: String },
+  address: { type: String },
   createdTime: { type: Date, default: Date.now() }
 });
 

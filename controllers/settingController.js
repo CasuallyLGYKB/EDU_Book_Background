@@ -6,13 +6,7 @@ exports.userMsgSetPost = async (ctx, next) => {
     school = req.body.school,
     address = req.body.address,
     email = req.body.email;
-  var query = { email: email };
-  result = await UserModel.update(query, { school: school ,address: address },{overwrite : true}).catch(e => e);
-  // if (result && result._id) {
-  //   console.log("用户信息更新完成！！");
-  // } else {
-  //   console.log("用户信息更新失败！！");
-  // }
+  result = await UserModel.update({ email: email }, { school: school, address: address }).catch(e => e);
   console.log(result);
 }
 
