@@ -10,10 +10,12 @@ module.exports = function () {
       var verifyPromise = Promise.promisify(jwt.verify);
       await verifyPromise(token, config.appKey)
         .then(async (decoded) => {
+          ctx.state._id = decoded._id;
+          //console.log(decoded._id);
           ctx.state.lastTime = decoded.exp;
         }, err => {
           ctx.cookies.set('jwt', null, { overwrite: true, httpOnly: true });
-          token = ctx.cookies.get('jwt') + "123123";
+          //token = ctx.cookies.get('jwt') + "123123";
         });
     }
     await next();
