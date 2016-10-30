@@ -23,7 +23,10 @@ exports.userMsgSetGet = async (ctx, next) => {
 }
 
 exports.bookMsgSetPost = async (ctx, next) => {
-  var result = null, req = ctx.request, message = null;
-  result = await BookModel.update({ _id: id }, { mesage }).catch(e => console.log(e));
+  var result = null, 
+    req = ctx.request, 
+    message = null,
+    id = ctx.state._id;
+  result = await BookModel.update({ _id: id }, { message }).catch(e => console.log(e));
   console.log(result);
 }
