@@ -1,12 +1,13 @@
 import UserModel from '../models/user'
+import BookModel from '../models/book'
 import { MD5, SHA256 } from 'crypto-js'
 
 exports.userMsgSetPost = async (ctx, next) => {
   var result = null, req = ctx.request,
     school = req.body.school,
     address = req.body.address,
-    email = req.body.email;
-  result = await UserModel.update({ email: email }, { school: school, address: address }).catch(e => e);
+    id = ctx.state._id;
+  result = await UserModel.update({ _id: id }, { school: school, address: address }).catch(e => e);
   console.log(result);
 }
 
@@ -19,4 +20,10 @@ exports.userMsgSetGet = async (ctx, next) => {
             <p>Email: <input name="email" type="text"></p>
             <p><input type="submit" value="Submit"></p>
         </form>`;
+}
+
+exports.bookMsgSetPost = async (ctx, next) => {
+  var result = null, req = ctx.request, message = null;
+  result = await BookModel.update({ _id: id }, { mesage }).catch(e => console.log(e));
+  console.log(result);
 }
