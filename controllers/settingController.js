@@ -23,10 +23,29 @@ exports.userMsgSetGet = async (ctx, next) => {
 }
 
 exports.bookMsgSetPost = async (ctx, next) => {
-  var result = null, 
-    req = ctx.request, 
-    message = null,
-    id = ctx.state._id;
-  result = await BookModel.update({ _id: id }, { message }).catch(e => console.log(e));
+  /**
+   * 根据id来修改书籍的信息
+   */
+  console.log("test,test");
+  var result = null,
+    id = ctx.params.id,
+    message = ctx.request.body;
+  console.log(id);
+  console.log(message);
+  result = await BookModel.update({ _id: id }, message).catch(e => console.log(e));
+  ctx.body = result;
   console.log(result);
+}
+
+exports.bookMsgSetGet = async (ctx, next) => {
+  console.log("BookMsgSet Page");
+  ctx.response.body = `<h1>BookMsgSet</h1>
+         <form action="/setting/bookmsg/5816b85eb5d2f714f417a8eb" method="post">
+            <p>BookName: <input name="bookName" type="text"></p>
+            <p>Price: <input name="price" type="text"></p>
+            <p>SwapMode: <input name="swapMode" type="text"></p>
+            <p>AppearanceLevel: <input name="appearanceLevel" type="text"></p>
+            <p>BookIntroduce: <input name="bookIntroduce" type="text"></p>
+            <p><input type="submit" value="Submit"></p>
+        </form>`;
 }

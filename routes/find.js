@@ -4,7 +4,7 @@ import findMsgController from '../controllers/findMsgController'
 
 const router = new Router();
 
-router.get('/all', checkCookies.checkCookiesTime, findMsgController.findAllBookGet);
-router.get('/:id', checkCookies.checkCookiesTime, findMsgController.findOneBookGet);
+router.get('/book/all', checkCookies.checkCookiesTime, findMsgController.findAllBookGet);
+router.get('/book/:id', checkCookies.checkCookiesTime, findMsgController.findOneBookGet);
 
 export default router;

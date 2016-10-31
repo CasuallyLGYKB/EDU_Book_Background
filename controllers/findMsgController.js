@@ -6,7 +6,7 @@ import _ from 'underscore'
 exports.findAllBookGet = async (ctx, next) => {
   /**
    * 排序api:
-   * localhost:3000/find/all?swapMode=快递&price=20&order=price_des
+   * localhost:3000/find/book/all?swapMode=快递&price=20&order=price_des
    * order=
    *  1.price_des(降序) price_asc(升序)
    *  2.createdTime_des(降序) createdTime_asc(升序)
@@ -30,8 +30,10 @@ exports.findAllBookGet = async (ctx, next) => {
 }
 
 exports.findOneBookGet = async (ctx, next) => {
-  var query = ctx.request.query;
-  var book = await BookModel.findOne(query).catch(e => console.log(e));
+  //localhost:3000/find/book/:id
+  //localhost:3000/find/book/5816b85eb5d2f714f417a8eb
+  var id = ctx.params.id;
+  var book = await BookModel.findById({_id:id}).catch(e => console.log(e));
   if (book && book._id) {
     console.log("查找书籍成功！");
     ctx.response.body = book;
