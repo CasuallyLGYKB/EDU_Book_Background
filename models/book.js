@@ -14,6 +14,8 @@ const BookSchema = new Schema({
   swapMode: { type: String, required: true },
   //书籍的新旧程度
   appearanceLevel: { type: String, required: true },
+  //书籍发布的学校
+  school: { type: String, required: true },
   //对书籍的介绍
   bookIntroduce: { type: String, default: "当前用户并没有对此书进行任何介绍" }
 });

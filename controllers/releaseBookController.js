@@ -16,6 +16,7 @@ exports.releaseBookPost = async (ctx, next) => {
     price: price,
     releaseUser: releaseUser,
     swapMode: swapMode,
+    school: releaseUser.school,
     appearanceLevel: appearanceLevel,
     bookIntroduce: bookIntroduce
   });
