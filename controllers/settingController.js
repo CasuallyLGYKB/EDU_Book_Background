@@ -26,7 +26,6 @@ exports.bookMsgSetPost = async (ctx, next) => {
   /**
    * 根据id来修改书籍的信息
    */
-  console.log("test,test");
   var result = null,
     id = ctx.params.id,
     message = ctx.request.body;

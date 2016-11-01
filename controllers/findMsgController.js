@@ -13,7 +13,7 @@ exports.findAllBookGet = async (ctx, next) => {
    *  3.appearanceLevel_des(新旧程度降序) appearanceLevel_asc(新旧程度升序)
    */
   var query = _.omit(ctx.request.query,'order'),
-   condition = _.pick(ctx.request.query,'order').order.split('_'), 
+   condition = _.pick(ctx.request.query,'order').order.split('_'),
    sortType = condition[1] == 'asc' ? 1 : -1, 
    conditions = querystring.parse(condition[0] + '=' + sortType);
   console.log(query);
