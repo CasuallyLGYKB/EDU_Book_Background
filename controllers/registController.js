@@ -14,6 +14,7 @@ exports.registPost = async (ctx, next) => {
   result = await user.save().catch(e => e);
   if (result && result._id) {
     ctx.status = 200;
+    ctx.body = { name: name, email: email };
     console.log('success');
   } else {
     console.log("邮箱已经被注册过了,请直接登陆！！！");
