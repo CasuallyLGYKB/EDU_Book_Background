@@ -1,17 +1,21 @@
 <template>
   <div>
     <navheader></navheader>
-    <ul>
-      <li v-for="book in books">
-        {{ book.bookName }} - {{ book.price }} - {{ book.swapMode }}
-      </li>
-    </ul>
+    <div class="home-page">
+      <carousel></carousel>
+      <ul>
+        <li v-for="book in books">
+          {{ book.bookName }} - {{ book.price }} - {{ book.swapMode }}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import navheader from '../components/navheader.vue'
+import carousel from '../components/carousel.vue'
 
 
 export default {
@@ -24,7 +28,8 @@ export default {
     }
   },
   components: {
-    navheader
+    navheader,
+    carousel
   },
   created () {
     this.$store.dispatch('findAllBook')
@@ -34,5 +39,7 @@ export default {
 </script>
 
 <style lang="sass">
-
+.home-page {
+  padding-top: 50px;
+}
 </style>

@@ -1,18 +1,21 @@
 <template>
   <div>
     <navheader></navheader>
-    <p>{{pageText}}</p>
-    <form v-on:submit.prevent="submit">
-      <div class="input-group">
-        <span class="input-group-addon">@</span>
-        <input class="form-control" type="email" placeholder="输入你的邮箱" v-model="form.email">
+    <div class="page">
+      <div class="container">
+        <form v-on:submit.prevent="submit" class="col-lg-4 col-lg-offset-4">
+          <div class="form-group">
+            <label>邮箱</label>
+            <input class="form-control" type="email" placeholder="输入你的邮箱" v-model="form.email">
+          </div>
+          <div class="form-group">
+            <label>密码</label>
+            <input class="form-control" type="password" placeholder="输入你的密码" v-model="form.password">
+          </div>
+          <button type="submit" class="btn btn-default">登录</button>
+        </form>
       </div>
-       <div class="input-group">
-        <span class="input-group-addon">@</span>
-        <input class="form-control" type="password" placeholder="输入你的密码" v-model="form.password">
-      </div>
-      <button type="submit" class="btn btn-default">登录</button>
-    </form>
+    </div>
   </div>
 </template>
 
@@ -43,10 +46,5 @@ export default {
 </script>
 
 <style lang="sass">
-form {
-  input {
-    display: block;
-    border-radius: 2px;
-  }
-}
+
 </style>
