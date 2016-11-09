@@ -4,7 +4,7 @@ const state = {
   user: JSON.parse(sessionStorage.getItem('user')) || {}
 }
 
-const mutation = {
+const mutations = {
   [types.AUTH_LOGIN](state, {user}) {
     sessionStorage.setItem('user', JSON.stringify(user))
     Object.assign(state, user)
@@ -15,12 +15,12 @@ const mutation = {
     Object.keys(state).forEach(k => Vue.delete(state, k))
   },
 
-  [types.AUTH_REGIEST](state, {status}) {
+  [types.AUTH_REGIST](state) {
     console.log("注册成功");
   }
 }
 
 export default {
   state,
-  mutation
+  mutations
 }

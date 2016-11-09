@@ -5,9 +5,9 @@ const state = {
   curBook: Object
 }
 
-const mutation = {
+const mutations = {
   [types.FIND_ALL_BOOK](state, {books}) {
-    state.allBook = books
+    state.allBooks = books
   },
   [types.FIND_ONE_BOOK](state, {book}) {
     state.curBook = book
@@ -16,5 +16,5 @@ const mutation = {
 
 export default {
   state,
-  mutation
+  mutations
 }

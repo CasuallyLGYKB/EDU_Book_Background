@@ -1,19 +1,18 @@
 import Vue from 'vue'
-const url = ''
 
 export default {
   findAllBook(callback) {
-    Vue.http.get(url + '')
-      .then((books) => {
-        console.log(books)
-        callback(books)
+    Vue.http.get('/find/book/all/?swapMode=快递&order=price_des')
+      .then((res) => {
+        console.log(res.body)
+        callback(res.body)
       })
       .catch((error) => {
         console.log(error)
       })
   },
   findOneBook(callback) {
-    Vue.http.get(url + '')
+    Vue.http.get('', opt)
       .then((book) => {
         console.log(book)
         callback(book)

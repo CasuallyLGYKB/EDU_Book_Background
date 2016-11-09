@@ -6,7 +6,7 @@ module.exports = function () {
     //从cookie中获取token签名
     var token = ctx.cookies.get('jwt');
     //设置可以进行跨域访问
-    ctx.set('Access-Control-Allow-Origin', '*');
+    //ctx.set('Access-Control-Allow-Origin', '*');
     if (token !== undefined) {
       //把token追加到header中
       ctx.request.header.authorization = 'Bearer ' + token;

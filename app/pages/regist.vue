@@ -2,30 +2,32 @@
   <div>
     <p>{{pageText}}</p>
     <form v-on:submit.prevent="submit">
+      <input type="text" placeholder="输入你的昵称" v-model="form.name">
       <input type="email" placeholder="输入你的邮箱" v-model="form.email">
       <input type="password" placeholder="输入你的密码" v-model="form.password">
-      <button type="submit">登录</button>
+      <button type="submit">注册</button>
     </form>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
-exports default {
+import {mapActions} from 'vuex'
+export default {
   data() {
     return {
-      pageText: 'Login Page',
+      pageText: 'Regiest Page',
       form: {
+        name: '',
         email: '',
         password: ''
       }
     }
   },
   methods: {
-    ...mapActions(['login']),
+    ...mapActions(['regist']),
     submit() {
-      let arg = 'email=' + this.form.email + '&password=' + this.form.password
-      this.login(arg)
+      let arg = 'name=' + this.form.name + '&email=' + this.form.email + '&password=' + this.form.password
+      this.regist(arg)
     }
   }
 }

@@ -15,7 +15,7 @@ exports.loginPost = async (ctx, next) => {
         var token = jwt.sign({ _id: result._id, exp: Date.now() }, config.appKey);
         console.log('登录成功！！！');
         ctx.cookies.set('jwt', token, { overwrite: true, httpOnly: true });
-        ctx.response.body = { token: token };
+        ctx.response.body = { token: token , email: result.email, name: result.name};
     } else {
         result = await UserModel.findOne({
             email: email

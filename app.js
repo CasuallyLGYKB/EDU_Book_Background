@@ -7,23 +7,25 @@ import jwt from 'koa-jwt'
 import config from './config'
 import router from './routes/index'
 import validation from './middlewares/validation'
+import htmlView from './middlewares/htmlView'
+import serve from 'koa-static'
 
 //链接数据库
-mongoose.connect(`mongodb://${config.mongodb.host}:${config.mongodb.port}/${config.mongodb.dbname}`);
+mongoose.connect(`mongodb://${config.mongodb.host}:${config.mongodb.port}/${config.mongodb.dbname}`)
 //把mongoose的写法转换成Promise调用
-mongoose.Promise = require('bluebird');
-global.Promise = require('bluebird');
+mongoose.Promise = require('bluebird')
+global.Promise = require('bluebird')
 
-const app = new Koa();
+const app = new Koa()
+app.use(serve(__dirname + '/public'))
 //提取cookie进行判断是否登录超出期限以及jwt是否签名是否符合
-app.use(validation());
-app.use(jwt({ secret: config.appKey }).unless({ path: [/^\/public/,/^\/login/,/^\/regist/]}));
+app.use(validation())
+app.use(jwt({ secret: config.appKey }).unless({ path: [/^\/public/, /^\/login/, /^\/regist/] }))
 
 //使得ctx能够解析body的内容
-app.use(bodyParser());
+app.use(bodyParser())
 
 //路由系统
-app.use(router.routes()).use(router.allowedMethods());
-
-app.listen(3000);
-console.log('app started at port 3000...');
+app.use(router.routes()).use(router.allowedMethods())
+app.listen(3000)
+console.log('app started at port 3000...') 

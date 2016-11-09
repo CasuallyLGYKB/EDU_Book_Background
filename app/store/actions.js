@@ -20,8 +20,15 @@ export const login = ({ commit }, arg) => {
   })
 }
 
-export const regiest = ({ commit }, arg) => {
-  auth.login(arg, (res) => {
-    commit(types.AUTH_REGIEST, {res})
+export const regist = ({ commit }, arg) => {
+  auth.regist(arg, () => {
+    commit(types.AUTH_REGIST)
   })
 } 
+
+export const logout = ({ commit }) => {
+  auth.logout((res) => {
+    commit(types.AUTH_LOGOUT)
+  })
+}
+
