@@ -1,5 +1,6 @@
 <template>
   <div>
+    <navheader></navheader>
     <p>{{pageText}}</p>
     <form v-on:submit.prevent="submit">
       <input type="text" placeholder="输入你的昵称" v-model="form.name">
@@ -12,6 +13,7 @@
 
 <script>
 import {mapActions} from 'vuex'
+import navheader from '../components/navheader.vue'
 export default {
   data() {
     return {
@@ -22,6 +24,9 @@ export default {
         password: ''
       }
     }
+  },
+  components: {
+    navheader
   },
   methods: {
     ...mapActions(['regist']),

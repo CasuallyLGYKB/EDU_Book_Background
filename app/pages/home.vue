@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>{{pageText}}</p>
+    <navheader></navheader>
     <ul>
       <li v-for="book in books">
         {{ book.bookName }} - {{ book.price }} - {{ book.swapMode }}
@@ -11,6 +11,9 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import navheader from '../components/navheader.vue'
+
+
 export default {
   computed: mapGetters({
     books: 'allBooks'
@@ -20,8 +23,16 @@ export default {
       pageText: 'Home Page'
     }
   },
+  components: {
+    navheader
+  },
   created () {
     this.$store.dispatch('findAllBook')
   }
+
 }
 </script>
+
+<style lang="sass">
+
+</style>

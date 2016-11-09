@@ -1,16 +1,24 @@
 <template>
   <div>
+    <navheader></navheader>
     <p>{{pageText}}</p>
     <form v-on:submit.prevent="submit">
-      <input type="email" placeholder="输入你的邮箱" v-model="form.email">
-      <input type="password" placeholder="输入你的密码" v-model="form.password">
-      <button type="submit">登录</button>
+      <div class="input-group">
+        <span class="input-group-addon">@</span>
+        <input class="form-control" type="email" placeholder="输入你的邮箱" v-model="form.email">
+      </div>
+       <div class="input-group">
+        <span class="input-group-addon">@</span>
+        <input class="form-control" type="password" placeholder="输入你的密码" v-model="form.password">
+      </div>
+      <button type="submit" class="btn btn-default">登录</button>
     </form>
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
+import navheader from '../components/navheader.vue'
 export default {
   data() {
     return {
@@ -21,6 +29,9 @@ export default {
       }
     }
   },
+  components: {
+    navheader
+  },
   methods: {
     ...mapActions(['login']),
     submit() {
@@ -30,3 +41,12 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+form {
+  input {
+    display: block;
+    border-radius: 2px;
+  }
+}
+</style>
