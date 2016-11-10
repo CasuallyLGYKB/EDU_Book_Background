@@ -9,17 +9,17 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item">
-        <img src="images/carousel_1.jpg">
+        <img class="img-responsive" src="images/carousel_1.jpg">
         <!--<div class="carousel-caption">          
         </div>-->
       </div>
       <div class="item active">
-        <img src="images/carousel_2.jpg">
+        <img class="img-responsive" src="images/carousel_2.jpg">
         <!--<div class="carousel-caption">
         </div>-->
       </div>
       <div class="item">
-        <img src="images/carousel_3.jpg">
+        <img class="img-responsive" src="images/carousel_3.jpg">
         <!--<div class="carousel-caption">
         </div>-->
       </div>
@@ -38,6 +38,6 @@
 
 <style lang="sass">
 .item {
-  height: 17em;
+  height: 12em;
 }
 </style>

@@ -30,7 +30,7 @@ export default {
   },
 
   logout(callback) {
-    Vue.http.post('/logout', opt) 
+    Vue.http.post('/logout', opt)
       .then((res) => {
         callback(res)
         console.log(res)

@@ -3,11 +3,18 @@
     <navheader></navheader>
     <div class="home-page">
       <carousel></carousel>
-      <ul>
-        <li v-for="book in books">
-          {{ book.bookName }} - {{ book.price }} - {{ book.swapMode }}
-        </li>
-      </ul>
+      <div class="container">
+        <div v-for="book in books">
+          <div class="row">
+            <div class="col-xs-6 col-md-3 col-lg-3 col-lg-offset-1">
+              <a class="thumbnail">
+                <img class="img-responsive img-rounded" src="images/carousel_1.jpg">
+                <label>{{ book.bookName }}</label>
+                <label>{{ book.price }}￥</label>
+              </a>
+            </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -31,10 +38,9 @@ export default {
     navheader,
     carousel
   },
-  created () {
+  created() {
     this.$store.dispatch('findAllBook')
   }
-
 }
 </script>
 

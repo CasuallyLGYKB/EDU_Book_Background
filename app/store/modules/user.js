@@ -7,12 +7,12 @@ const state = {
 const mutations = {
   [types.AUTH_LOGIN](state, {user}) {
     sessionStorage.setItem('user', JSON.stringify(user))
-    Object.assign(state, user)
+    state.user = user
   },
-
+  
   [types.AUTH_LOGOUT](state) {
     sessionStorage.removeItem('user')
-    Object.keys(state).forEach(k => Vue.delete(state, k))
+    state.user = {}
   },
 
   [types.AUTH_REGIST](state) {
