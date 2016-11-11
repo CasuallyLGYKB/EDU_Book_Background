@@ -36,7 +36,7 @@ export default {
     navheader
   },
   methods: {
-    ...mapActions(['login']),
+    ...mapActions(['login','findAllBook']),
     submit() {
       let arg = 'email=' + this.form.email + '&password=' + this.form.password
       this.login(arg)

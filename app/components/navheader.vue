@@ -31,12 +31,10 @@ export default {
   methods: {
     ...mapActions(['logout']),
     logoutSubmit() {
-      this.logout();
+      this.logout()
+      this.$store.commit('DROP_ALL_BOOK')
       this.$router.replace({path: '/login'})
     }
-  },
-  create() {
-    this.$store.dispatch('')
   }
 }
 </script>

@@ -21,7 +21,7 @@ export default {
   methods: {
     ...mapActions(['logout']),
     submit() {
-      this.logout();
+      this.logout()
     }
   }
 }

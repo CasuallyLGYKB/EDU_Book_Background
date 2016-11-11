@@ -11,6 +11,9 @@ const mutations = {
   },
   [types.FIND_ONE_BOOK](state, {book}) {
     state.curBook = book
+  },
+  [types.DROP_ALL_BOOK](state) {
+    state.allBooks = []
   }
 }
 
