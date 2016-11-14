@@ -45,6 +45,7 @@ export default {
     submit() {
       let arg = 'name=' + this.form.name + '&email=' + this.form.email + '&password=' + this.form.password
       this.regist(arg)
+      this.$router.replace({path: '/login'})
     }
   }
 }

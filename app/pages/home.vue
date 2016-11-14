@@ -4,7 +4,7 @@
     <div class="home-page">
       <carousel></carousel>
       <template v-if="curUser.name">
-        <div v-for="book in books">
+        <template v-for="book in books">
           <div class="row li-book-item">
             <div class="col-xs-12 col-s-6 col-md-6 col-lg-5">
               <router-link class="li-book-link" to="/login">
@@ -12,14 +12,15 @@
                   <img class="img-responsive img-rounded" src="https://img.alicdn.com/bao/uploaded/i6/TB1lu0DJXXXXXbpXpXXipY88FXX_030314.jpg_250x250Q30s50.jpg_.webp">
                 </div>
                 <div class="li-book-info">
-                  <h3>{{ book.bookName }}</h3>
+                  <h4>{{ book.bookName }}</h4>
                   <h5>{{ book.bookIntroduce }}</h5>
-                  <h5>{{ book.school }}</h5>
+                  <h6>{{ book.school }}</h6>
                   <h6>￥{{ book.price }}&nbsp&nbsp{{ book.swapMode }}</h6>
                 </div>
               </router-link>
             </div>
-        </div>
+          </div>
+        </template>
       </template>
       <template v-else>
         <span>用户未登陆</span>
@@ -66,6 +67,7 @@ export default {
 <style lang="sass">
 .home-page {
   padding-top: 50px;
+  overflow: hidden;
   .li-book-item {
     display: block;
     border-bottom-style:solid;
