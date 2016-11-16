@@ -17,7 +17,6 @@ exports.userMsgSetGet = async (ctx, next) => {
         <form action="/setting/usermsg" method="post">
             <p>Address: <input name="address" type="text"></p>
             <p>School: <input name="school" type="text"></p>
-            <p>Email: <input name="email" type="text"></p>
             <p><input type="submit" value="Submit"></p>
         </form>`;
 }

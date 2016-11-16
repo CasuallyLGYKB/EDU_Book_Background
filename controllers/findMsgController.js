@@ -18,15 +18,18 @@ exports.findAllBookGet = async (ctx, next) => {
    conditions = querystring.parse(condition[0] + '=' + sortType)
   console.log(query) 
   console.log(conditions)
-  var books = await BookModel.find(query).sort(conditions).populate('releaseUser', 'name email').exec((err, books) => {
-    if(err) 
-      return err
-    console.log(books)
-    return books
-  }).catch(e => console.log(e)) 
+  var books = await BookModel
+    .find(query)
+    .sort(conditions).populate('releaseUser', 'name email setMsg')
+    .exec((err, books) => {
+      if(err)
+        return err
+      return books
+    }).catch(e => console.log(e))
+  console.log(books)
   if (books.length) {
-    ctx.response.body = books 
-    console.log("查找书籍成功！") 
+    ctx.response.body = books
+    console.log("查找书籍成功！")
   } else {
     console.log("查找书籍失败！") 
     ctx.status = 204 

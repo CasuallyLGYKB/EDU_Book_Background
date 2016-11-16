@@ -13,8 +13,8 @@
                 </div>
                 <div class="li-book-info">
                   <h4>{{ book.bookName }}</h4>
-                  <h5>{{ book.bookIntroduce }}</h5>
-                  <h6>{{ book.school }}</h6>
+                  <h5>{{ book.setMsg.bookIntroduce }}</h5>
+                  <h6>{{ book.releaseUser.setMsg.school }}</h6>
                   <h6>￥{{ book.price }}&nbsp&nbsp{{ book.swapMode }}</h6>
                 </div>
               </router-link>
