@@ -7,7 +7,7 @@ exports.userMsgSetPost = async (ctx, next) => {
     school = req.body.school,
     address = req.body.address,
     id = ctx.state._id;
-  result = await UserModel.update({ _id: id }, { school: school, address: address }).catch(e => e);
+  result = await UserModel.update({ _id: id }, { setMsg: { school: school, address: address }}).catch(e => e);
   console.log(result);
 }
 

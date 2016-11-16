@@ -29,7 +29,7 @@
 
 4. response:
 
-		{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ODE4NTU3Nzg4YWZjNzExMmNjNGM0ZDMiLCJleHAiOjE0Nzc5ODk3ODMzNjksImlhdCI6MTQ3Nzk4OTc4M30.u2IZGKeKbC8J6rBLgC43tYsdaZY6PAYtj1IYcVU-SgQ"}
+		{ token: token, email: email, name: name }
 
 ## 注销API
 
