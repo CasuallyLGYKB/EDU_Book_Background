@@ -12,12 +12,18 @@ exports.findAllBookGet = async (ctx, next) => {
    *  2.createdTime_des(降序) createdTime_asc(升序)
    *  3.appearanceLevel_des(新旧程度降序) appearanceLevel_asc(新旧程度升序)
    */
-  var query = _.omit(ctx.request.query,'order'),
-   condition = _.pick(ctx.request.query,'order').order.split('_'),
-   sortType = condition[1] == 'asc' ? 1 : -1, 
-   conditions = querystring.parse(condition[0] + '=' + sortType)
-  console.log(query) 
-  console.log(conditions)
+  var query = {}, conditions = {}
+  console.log(ctx.request.query)
+  if(!_.isEmpty(_.omit(ctx.request.query,'order'))) {
+    query = _.omit(ctx.request.query,'order')
+  }
+  if(!_.isEmpty(_.pick(ctx.request.query,'order'))) {
+    let condition = _.pick(ctx.request.query,'order').order.split('_')
+    let sortType = condition[1] == 'asc' ? 1 : -1
+    conditions = querystring.parse(condition[0] + '=' + sortType)
+  }
+  // console.log(query) 
+  // console.log(conditions)
   var books = await BookModel
     .find(query)
     .sort(conditions).populate('releaseUser', 'name email setMsg')
@@ -26,7 +32,7 @@ exports.findAllBookGet = async (ctx, next) => {
         return err
       return books
     }).catch(e => console.log(e))
-  console.log(books)
+  //console.log(books)
   if (books.length) {
     ctx.response.body = books
     console.log("查找书籍成功！")
